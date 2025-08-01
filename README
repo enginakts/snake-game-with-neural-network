@@ -1,12 +1,11 @@
-# Yapay Sinir Ağı ile Yılan Oyunu
+##Yapay Sinir Ağı ile Yılan Oyunu
 
 Bu proje, klasik **yılan oyununu** oynamak için **Deep Q-Learning (Derin Q-Öğrenme)** kullanan bir yapay zeka sistemi içerir. Yılan, kendi kendine oynamayı öğrenerek en yüksek skoru elde etme stratejilerini geliştirir.
 
-![Snake Game with AI](https://raw.githubusercontent.com/your-username/your-repo-name/main/assets/demo.gif)
 
 ---
 
-## Özellikler
+##Özellikler
 
  **Klasik Yılan Oyunu:** Geleneksel yılan oyununun temel mekanikleri üzerine kurulu.
  **Derin Q-Öğrenme (DQN) Ajanı:** Yılanın karar verme mekanizması için eğitilebilir bir model.
