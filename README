@@ -1,23 +1,106 @@
-##Yapay Sinir Ağı ile Yılan Oyunu
+# Snake Game with Neural Network 🐍
 
-Bu proje, klasik **yılan oyununu** oynamak için **Deep Q-Learning (Derin Q-Öğrenme)** kullanan bir yapay zeka sistemi içerir. Yılan, kendi kendine oynamayı öğrenerek en yüksek skoru elde etme stratejilerini geliştirir.
+A Python implementation of the classic Snake game with an AI agent trained using Deep Q-Learning. The AI learns to play the game through reinforcement learning, improving its performance over time.
 
+## Features
 
----
+- Classic Snake game implementation using Pygame
+- Deep Q-Learning neural network agent
+- Real-time visualization of the game
+- Ability to train the AI from scratch or use pre-trained models
+- Performance tracking and model saving
 
-##Özellikler
-
- **Klasik Yılan Oyunu:** Geleneksel yılan oyununun temel mekanikleri üzerine kurulu.
- **Derin Q-Öğrenme (DQN) Ajanı:** Yılanın karar verme mekanizması için eğitilebilir bir model.
- **Gerçek Zamanlı Eğitim:** Eğitim sürecini ve yılanın gelişimini canlı olarak izleme imkanı.
-**Önceden Eğitilmiş Model:** Hızlı başlangıç yapmak için eğitilmiş bir modeli doğrudan kullanabilme.
-**Eğitim İstatistikleri:** Skor, ortalama skor ve diğer performans metriklerini gösteren grafikler.
-
----
-
-## Gereksinimler
-
-Bu projeyi çalıştırmak için aşağıdaki kütüphanelerin yüklü olması gerekir.
+## Requirements
 
 ```bash
-pip install pygame torch numpy matplotlib IPython
+pip install torch numpy pygame
+```
+
+## Project Structure
+
+- `snake_game.py`: Core Snake game implementation
+- `agent.py`: AI agent implementation using Deep Q-Learning
+- `model.py`: Neural network architecture and training logic
+- `train.py`: Script for training the AI agent
+- `play.py`: Script for watching the trained AI play
+- `model1.pth`: Pre-trained model weights
+
+## How It Works
+
+### Game Environment
+- The game is built using Pygame
+- The snake moves on a grid-based environment
+- The goal is to eat food and grow while avoiding collisions
+
+### Neural Network
+- Input Layer: 11 neurons (current game state)
+- Hidden Layer: 256 neurons with ReLU activation
+- Output Layer: 3 neurons (straight, right turn, left turn)
+
+### State Representation
+The AI receives 11 input values representing:
+- Danger straight ahead
+- Danger to the right
+- Danger to the left
+- Current direction (4 values)
+- Food location relative to head (4 values)
+
+### Training Process
+- Uses Deep Q-Learning with experience replay
+- Epsilon-greedy strategy for exploration
+- Reward system:
+  - +10 for eating food
+  - -10 for collision
+  - 0 for survival
+
+## Usage
+
+### Training the AI
+
+```bash
+python train.py
+```
+
+This will start training a new model. The agent will learn through trial and error, and the model will be saved as `model.pth`.
+
+### Watching the AI Play
+
+```bash
+python play.py
+```
+
+This will load the pre-trained model and demonstrate the AI playing the game.
+
+## Training Parameters
+
+- Learning Rate: 0.001
+- Gamma (Discount Factor): 0.9
+- Memory Size: 100,000
+- Batch Size: 1,000
+- Initial Epsilon: 80
+- Epsilon Decay: -1 per game
+
+## Performance
+
+The AI typically achieves:
+- Consistent survival after ~200 games
+- Ability to grow to medium-large sizes
+- Good food-seeking behavior
+- Collision avoidance skills
+
+## Contributing
+
+Feel free to fork this project and submit pull requests. You can also:
+1. Report bugs
+2. Suggest new features
+3. Improve documentation
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Acknowledgments
+
+- Pygame community for the game development framework
+- PyTorch team for the deep learning framework
+- Reinforcement learning community for Q-learning concepts
