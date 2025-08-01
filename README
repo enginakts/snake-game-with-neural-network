@@ -1,106 +1,106 @@
-# Snake Game with Neural Network 🐍
+# Sinir Ağı ile Yılan Oyunu 🐍
 
-A Python implementation of the classic Snake game with an AI agent trained using Deep Q-Learning. The AI learns to play the game through reinforcement learning, improving its performance over time.
+Derin Q-Öğrenme kullanılarak eğitilmiş bir yapay zeka aracısı ile klasik Yılan oyununun Python uygulaması. Yapay zeka, takviyeli öğrenme yoluyla oyunu oynamayı öğreniyor ve zamanla performansını artırıyor.
 
-## Features
+## Özellikler
 
-- Classic Snake game implementation using Pygame
-- Deep Q-Learning neural network agent
-- Real-time visualization of the game
-- Ability to train the AI from scratch or use pre-trained models
-- Performance tracking and model saving
+- Pygame kullanılarak klasik Yılan oyunu uygulaması
+- Derin Q-Öğrenme sinir ağı aracısı
+- Oyunun gerçek zamanlı görselleştirilmesi
+- Yapay zekayı sıfırdan eğitme veya önceden eğitilmiş modelleri kullanma yeteneği
+- Performans takibi ve model kaydetme
 
-## Requirements
+## Gereksinimler
 
 ```bash
 pip install torch numpy pygame
 ```
 
-## Project Structure
+## Proje Yapısı
 
-- `snake_game.py`: Core Snake game implementation
-- `agent.py`: AI agent implementation using Deep Q-Learning
-- `model.py`: Neural network architecture and training logic
-- `train.py`: Script for training the AI agent
-- `play.py`: Script for watching the trained AI play
-- `model1.pth`: Pre-trained model weights
+- `snake_game.py`: Çekirdek Yılan oyunu uygulaması
+- `agent.py`: Derin Q-Öğrenme kullanan AI aracı uygulaması
+- `model.py`: Sinir ağı mimarisi ve eğitim mantığı
+- `train.py`: Yapay zeka aracısını eğitmek için komut dosyası
+- `play.py`: Eğitilmiş yapay zekanın oynamasını izlemek için komut dosyası
+- `model1.pth`: Önceden eğitilmiş model ağırlıkları
 
-## How It Works
+## Nasıl Çalışır
 
-### Game Environment
-- The game is built using Pygame
-- The snake moves on a grid-based environment
-- The goal is to eat food and grow while avoiding collisions
+### Oyun Ortamı
+- Oyun Pygame kullanılarak oluşturulmuştur
+- Yılan, ızgara tabanlı bir ortamda hareket eder
+- Amaç çarpışmalardan kaçınarak yemek yemek ve büyümektir
 
-### Neural Network
-- Input Layer: 11 neurons (current game state)
-- Hidden Layer: 256 neurons with ReLU activation
-- Output Layer: 3 neurons (straight, right turn, left turn)
+### Sinir Ağı
+- Giriş Katmanı: 11 nöron (mevcut oyun durumu)
+- Gizli Katman: 256 nöron (ReLU aktivasyonu ile)
+- Çıkış Katmanı: 3 nöron (düz, sağa dönüş, sola dönüş)
 
-### State Representation
-The AI receives 11 input values representing:
-- Danger straight ahead
-- Danger to the right
-- Danger to the left
-- Current direction (4 values)
-- Food location relative to head (4 values)
+### Durum Temsili
+Yapay zeka 11 giriş değeri alır:
+- Düz ilerideki tehlike
+- Sağdaki tehlike
+- Soldaki tehlike
+- Mevcut yön (4 değer)
+- Yemeğin başa göre konumu (4 değer)
 
-### Training Process
-- Uses Deep Q-Learning with experience replay
-- Epsilon-greedy strategy for exploration
-- Reward system:
-  - +10 for eating food
-  - -10 for collision
-  - 0 for survival
+### Eğitim Süreci
+- Deneyim tekrarı ile Derin Q-Öğrenme kullanır
+- Keşif için Epsilon-greedy stratejisi
+- Ödül sistemi:
+  - Yemek yeme: +10 puan
+  - Çarpışma: -10 puan
+  - Hayatta kalma: 0 puan
 
-## Usage
+## Kullanım
 
-### Training the AI
+### Yapay Zekayı Eğitme
 
 ```bash
 python train.py
 ```
 
-This will start training a new model. The agent will learn through trial and error, and the model will be saved as `model.pth`.
+Bu, yeni bir model eğitmeye başlayacaktır. Ajan deneme yanılma yoluyla öğrenecek ve model `model.pth` olarak kaydedilecektir.
 
-### Watching the AI Play
+### Yapay Zekanın Oyununu İzleme
 
 ```bash
 python play.py
 ```
 
-This will load the pre-trained model and demonstrate the AI playing the game.
+Bu, önceden eğitilmiş modeli yükleyecek ve yapay zekanın oyunu oynamasını gösterecektir.
 
-## Training Parameters
+## Eğitim Parametreleri
 
-- Learning Rate: 0.001
-- Gamma (Discount Factor): 0.9
-- Memory Size: 100,000
-- Batch Size: 1,000
-- Initial Epsilon: 80
-- Epsilon Decay: -1 per game
+- Öğrenme Oranı: 0.001
+- Gamma (İndirim Faktörü): 0.9
+- Bellek Boyutu: 100,000
+- Parti Boyutu: 1,000
+- Başlangıç Epsilon: 80
+- Epsilon Azalması: Oyun başına -1
 
-## Performance
+## Performans
 
-The AI typically achieves:
-- Consistent survival after ~200 games
-- Ability to grow to medium-large sizes
-- Good food-seeking behavior
-- Collision avoidance skills
+Yapay zeka genellikle:
+- ~200 oyundan sonra tutarlı hayatta kalma
+- Orta-büyük boyutlara ulaşabilme
+- İyi yemek arama davranışı
+- Çarpışmadan kaçınma becerileri
 
-## Contributing
+## Katkıda Bulunma
 
-Feel free to fork this project and submit pull requests. You can also:
-1. Report bugs
-2. Suggest new features
-3. Improve documentation
+Bu projeyi fork edebilir ve pull request gönderebilirsiniz. Ayrıca:
+1. Hataları bildirebilirsiniz
+2. Yeni özellikler önerebilirsiniz
+3. Dokümantasyonu iyileştirebilirsiniz
 
-## License
+## Lisans
 
-This project is open source and available under the MIT License.
+Bu proje açık kaynaklıdır ve MIT Lisansı altında kullanıma sunulmuştur.
 
-## Acknowledgments
+## Teşekkürler
 
-- Pygame community for the game development framework
-- PyTorch team for the deep learning framework
-- Reinforcement learning community for Q-learning concepts
+- Oyun geliştirme çerçevesi için Pygame topluluğuna
+- Derin öğrenme çerçevesi için PyTorch ekibine
+- Q-learning konseptleri için Takviyeli öğrenme topluluğuna
