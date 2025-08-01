@@ -1,106 +1,198 @@
-# Sinir Ağı ile Yılan Oyunu 🐍
+<div align="center">
+  <img src="https://raw.githubusercontent.com/gist/patevs/b007a0e98fb216438d4cbf559fac4166/raw/88f20c9d749d756be63f22b09f3c4ac570bc5101/programming.gif" width="500"/>
+</div>
 
-Derin Q-Öğrenme kullanılarak eğitilmiş bir yapay zeka aracısı ile klasik Yılan oyununun Python uygulaması. Yapay zeka, takviyeli öğrenme yoluyla oyunu oynamayı öğreniyor ve zamanla performansını artırıyor.
+<h1 align="center">
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
+  Sinir Ağı ile Yılan Oyunu
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"/>
+</h1>
 
-## Özellikler
+<p align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2C9DF7&center=true&vCenter=true&width=435&lines=Python+ile+Yap%C4%B1lm%C4%B1%C5%9F+Y%C4%B1lan+Oyunu;Derin+Q-%C3%96%C4%9Frenme+ile+E%C4%9Fitilmi%C5%9F;Yapay+Zeka+Kontroll%C3%BC" alt="Typing SVG" />
+  </a>
+</p>
 
-- Pygame kullanılarak klasik Yılan oyunu uygulaması
-- Derin Q-Öğrenme sinir ağı aracısı
-- Oyunun gerçek zamanlı görselleştirilmesi
-- Yapay zekayı sıfırdan eğitme veya önceden eğitilmiş modelleri kullanma yeteneği
-- Performans takibi ve model kaydetme
+<div align="center">
+  <img src="https://media.giphy.com/media/dWesBcTLavkZuG35MI/giphy.gif" width="400" height="200"/>
+</div>
 
-## Gereksinimler
+---
+
+### 🎮 Proje Hakkında:
+
+Bu proje, klasik Yılan oyununun modern bir yorumudur. Yapay zeka, takviyeli öğrenme yoluyla oyunu oynamayı öğrenir ve zamanla performansını artırır.
+
+- 🐍 Pygame ile geliştirilmiş klasik Yılan oyunu
+- 🧠 Derin Q-Öğrenme kullanan yapay zeka
+- 📊 Gerçek zamanlı performans izleme
+- 💾 Model kaydetme ve yükleme özelliği
+- 🔄 Sıfırdan eğitim veya hazır model kullanma seçeneği
+
+### 🛠️ Gereksinimler:
+
+<div align="center">
+  <table style="border: none; background: none;">
+    <tr>
+      <td align="center" width="96">
+        <img src="https://techstack-generator.vercel.app/python-icon.svg" alt="Python" width="65" height="65" />
+        <br>Python
+      </td>
+      <td align="center" width="96">
+        <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch" width="65" height="65" />
+        <br>PyTorch
+      </td>
+      <td align="center" width="96">
+        <img src="https://www.pygame.org/docs/_static/pygame_logo.svg" alt="Pygame" width="65" height="65" />
+        <br>Pygame
+      </td>
+      <td align="center" width="96">
+        <img src="https://numpy.org/images/logo.svg" alt="NumPy" width="65" height="65" />
+        <br>NumPy
+      </td>
+    </tr>
+  </table>
+</div>
 
 ```bash
 pip install torch numpy pygame
 ```
 
-## Proje Yapısı
+### 📁 Proje Yapısı:
 
-- `snake_game.py`: Çekirdek Yılan oyunu uygulaması
-- `agent.py`: Derin Q-Öğrenme kullanan AI aracı uygulaması
-- `model.py`: Sinir ağı mimarisi ve eğitim mantığı
-- `train.py`: Yapay zeka aracısını eğitmek için komut dosyası
-- `play.py`: Eğitilmiş yapay zekanın oynamasını izlemek için komut dosyası
-- `model1.pth`: Önceden eğitilmiş model ağırlıkları
+<div align="center">
+  <table style="border: none; background: none;">
+    <tr>
+      <td>📄 snake_game.py</td>
+      <td>Çekirdek Yılan oyunu uygulaması</td>
+    </tr>
+    <tr>
+      <td>🤖 agent.py</td>
+      <td>Derin Q-Öğrenme kullanan AI aracı</td>
+    </tr>
+    <tr>
+      <td>🧠 model.py</td>
+      <td>Sinir ağı mimarisi ve eğitim mantığı</td>
+    </tr>
+    <tr>
+      <td>📚 train.py</td>
+      <td>Yapay zeka eğitim script'i</td>
+    </tr>
+    <tr>
+      <td>🎮 play.py</td>
+      <td>Eğitilmiş modeli çalıştırma script'i</td>
+    </tr>
+    <tr>
+      <td>💾 model1.pth</td>
+      <td>Önceden eğitilmiş model</td>
+    </tr>
+  </table>
+</div>
 
-## Nasıl Çalışır
+### 🧮 Sinir Ağı Mimarisi:
 
-### Oyun Ortamı
-- Oyun Pygame kullanılarak oluşturulmuştur
-- Yılan, ızgara tabanlı bir ortamda hareket eder
-- Amaç çarpışmalardan kaçınarak yemek yemek ve büyümektir
+<div align="center">
+  <table style="border: none; background: none;">
+    <tr>
+      <td align="center">
+        <b>Giriş Katmanı</b>
+        <br>11 Nöron
+        <br>(Oyun Durumu)
+      </td>
+      <td align="center">➡️</td>
+      <td align="center">
+        <b>Gizli Katman</b>
+        <br>256 Nöron
+        <br>(ReLU)
+      </td>
+      <td align="center">➡️</td>
+      <td align="center">
+        <b>Çıkış Katmanı</b>
+        <br>3 Nöron
+        <br>(Hareket)
+      </td>
+    </tr>
+  </table>
+</div>
 
-### Sinir Ağı
-- Giriş Katmanı: 11 nöron (mevcut oyun durumu)
-- Gizli Katman: 256 nöron (ReLU aktivasyonu ile)
-- Çıkış Katmanı: 3 nöron (düz, sağa dönüş, sola dönüş)
+### 📊 Eğitim Parametreleri:
 
-### Durum Temsili
-Yapay zeka 11 giriş değeri alır:
-- Düz ilerideki tehlike
-- Sağdaki tehlike
-- Soldaki tehlike
-- Mevcut yön (4 değer)
-- Yemeğin başa göre konumu (4 değer)
+<div align="center">
+  <table style="border: none; background: none;">
+    <tr>
+      <td align="center">🎯 Öğrenme Oranı</td>
+      <td align="center">0.001</td>
+    </tr>
+    <tr>
+      <td align="center">📉 Gamma</td>
+      <td align="center">0.9</td>
+    </tr>
+    <tr>
+      <td align="center">💾 Bellek</td>
+      <td align="center">100,000</td>
+    </tr>
+    <tr>
+      <td align="center">📦 Parti Boyutu</td>
+      <td align="center">1,000</td>
+    </tr>
+    <tr>
+      <td align="center">📊 Epsilon</td>
+      <td align="center">80 → 0</td>
+    </tr>
+  </table>
+</div>
 
-### Eğitim Süreci
-- Deneyim tekrarı ile Derin Q-Öğrenme kullanır
-- Keşif için Epsilon-greedy stratejisi
-- Ödül sistemi:
-  - Yemek yeme: +10 puan
-  - Çarpışma: -10 puan
-  - Hayatta kalma: 0 puan
-
-## Kullanım
-
-### Yapay Zekayı Eğitme
+### 🎮 Kullanım:
 
 ```bash
+# Yapay Zekayı Eğitme
 python train.py
-```
 
-Bu, yeni bir model eğitmeye başlayacaktır. Ajan deneme yanılma yoluyla öğrenecek ve model `model.pth` olarak kaydedilecektir.
-
-### Yapay Zekanın Oyununu İzleme
-
-```bash
+# Eğitilmiş Modeli Çalıştırma
 python play.py
 ```
 
-Bu, önceden eğitilmiş modeli yükleyecek ve yapay zekanın oyunu oynamasını gösterecektir.
+### 📈 Performans:
 
-## Eğitim Parametreleri
+- ✅ 200 oyun sonrası tutarlı performans
+- 🔄 Sürekli öğrenme ve adaptasyon
+- 🎯 Etkili yemek bulma stratejisi
+- 🛡️ Gelişmiş çarpışma önleme
 
-- Öğrenme Oranı: 0.001
-- Gamma (İndirim Faktörü): 0.9
-- Bellek Boyutu: 100,000
-- Parti Boyutu: 1,000
-- Başlangıç Epsilon: 80
-- Epsilon Azalması: Oyun başına -1
+### 🤝 Katkıda Bulunma:
 
-## Performans
+1. 🔍 Projeyi fork edin
+2. 🛠️ Özellik dalı oluşturun
+3. 💻 Değişikliklerinizi commit edin
+4. 📤 Dalınıza push edin
+5. 📫 Pull request oluşturun
 
-Yapay zeka genellikle:
-- ~200 oyundan sonra tutarlı hayatta kalma
-- Orta-büyük boyutlara ulaşabilme
-- İyi yemek arama davranışı
-- Çarpışmadan kaçınma becerileri
+### 📝 Lisans:
 
-## Katkıda Bulunma
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-Bu projeyi fork edebilir ve pull request gönderebilirsiniz. Ayrıca:
-1. Hataları bildirebilirsiniz
-2. Yeni özellikler önerebilirsiniz
-3. Dokümantasyonu iyileştirebilirsiniz
+### 🙏 Teşekkürler:
 
-## Lisans
+<div align="center">
+  <table style="border: none; background: none;">
+    <tr>
+      <td align="center">
+        <img src="https://www.pygame.org/docs/_static/pygame_logo.svg" width="50"/>
+        <br>Pygame
+      </td>
+      <td align="center">
+        <img src="https://pytorch.org/assets/images/pytorch-logo.png" width="50"/>
+        <br>PyTorch
+      </td>
+      <td align="center">
+        <img src="https://numpy.org/images/logo.svg" width="50"/>
+        <br>NumPy
+      </td>
+    </tr>
+  </table>
+</div>
 
-Bu proje açık kaynaklıdır ve MIT Lisansı altında kullanıma sunulmuştur.
-
-## Teşekkürler
-
-- Oyun geliştirme çerçevesi için Pygame topluluğuna
-- Derin öğrenme çerçevesi için PyTorch ekibine
-- Q-learning konseptleri için Takviyeli öğrenme topluluğuna
+<div align="center">
+  <img src="https://profile-counter.glitch.me/snake-game-ai/count.svg"/>
+</div>
